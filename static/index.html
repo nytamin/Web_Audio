@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Web Audio Lab</title>
+<link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+<h1>Web Audio Lab</h1>
+
+<div class="container">
+<div class="panel">
+<h2>Select Audio File</h2>
+<select id="fileSelect">
+<option value="audio/2_stereo tone 1kHz -20dBFS 48k.wav">2.0.wav</option>
+<option value="audio/4ch.wav">4.0.wav</option>
+<option value="audio/6_Channel_ID.wav">5.1.wav</option>
+<option value="audio/8_Channel_ID.wav">7.1.wav</option>
+<option value="audio/silentbreed.flac">2.0.flac</option>
+</select>
+<br><br>
+<button id="loadBtn">Load</button>
+<button id="playBtn">Play</button>
+</div>
+
+
+<div class="panel">
+<h2>Select Test File</h2>
+<select id="fileSelectVid">
+<option value="audio/dolby-argon.vob">Dolby Argon</option>
+<option value="audio/dolby-canyon.vob">Dolby Canyon</option>
+<option value="audio/dolby-channel-check.vob">Dolby Channel Check</option>
+<option value="/Users/jmac/python-virtual-environments/Web_Audio/static/audio/dolby-dolbee.vob">Dolby Dolbee</option>
+<option value="audio/4ch.wav">4.0.wav</option>
+<option value="audio/6_Channel_ID.wav">5.1.wav</option>
+<option value="audio/8_Channel_ID.wav">7.1.wav</option>
+<option value="audio/silentbreed.flac">2.0.flac</option>
+</select>
+<br><br>
+<button id="loadBtnVid">Load</button>
+<button id="playBtnVid">Play</button>
+<video id="videoPlayer" width="300" controls></video>
+</div>
+
+<div class="panel">
+<h2>File Information</h2>
+<pre id="info"></pre>
+</div>
+
+<div class="panel">
+<h2>Audio Routing</h2>
+<pre id="routing"></pre>
+</div>
+
+<div class="panel">
+<h2>Channel Levels</h2>
+<div id="meters"></div>
+</div>
+
+</div>
+
+<script src="static/app.js"></script>
+
+</body>
+</html>
