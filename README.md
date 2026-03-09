@@ -23,7 +23,7 @@ The goal is to explore:
 - Visualise individual channel activity using analyser nodes
 - Inspect decoded file metadata
 - Display the Web Audio routing graph
-- Compare browser behaviour across different codecs and channel layouts, .wav, .flac, .vob
+- Compare browser behaviour across different codecs and channel layouts, .wav, .flac, .vob, .mp4
 
 
 ## Observations
