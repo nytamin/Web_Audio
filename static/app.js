@@ -48,7 +48,6 @@ async function loadAudio() {
     displayInfo(audioBuffer);
     displayRouting(audioBuffer);
     setupAnalysis(audioBuffer.numberOfChannels);
-    console.log("TYPE: ",Object.prototype.toString.call(audioBuffer).slice(8, -1).toLowerCase())
 }
 
 function playAudio() {
@@ -59,7 +58,6 @@ function playAudio() {
     source.connect(splitter);
     source.connect(gainNode);
     source.start();
-    console.log("TYPE: ",Object.prototype.toString.call(source).slice(8, -1).toLowerCase())
 }
 
 let mediaSource = null;
@@ -74,18 +72,28 @@ function loadMedia() {
         setupAnalysis(assumedChannels);
         displayMediaRouting(assumedChannels);
     };
-    if (!mediaSource) {
-        mediaSource = audioCtx.createMediaElementSource(video);
-        mediaSource.connect(gainNode);
-        console.log("TYPE: ",Object.prototype.toString.call(mediaSource).slice(8, -1).toLowerCase())
+    try {
+        if (!mediaSource) {
+            mediaSource = audioCtx.createMediaElementSource(video);
+            mediaSource.connect(gainNode);
+        }
+    } catch (error) {
+    console.error(error);
+        displayError(error);
+        return;
     }
 }
 
 async function playMedia() {
-    console.log("PLAY MEDIA")
     await audioCtx.resume();
     const video = document.getElementById("videoPlayer");
-    video.play();
+
+    try {
+        await video.play();
+    } catch (error) {
+        console.error(error);
+        displayError(error.message || "Media playback failed");
+    }
 }
 
 function setupAnalysis(channelCount) {
